@@ -1,3 +1,3 @@
-# i3conf
+# My arch linux configuration files and application list
 
-Here's my i3 configurations
+Here's my configurations
