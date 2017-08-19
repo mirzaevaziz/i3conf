@@ -1,6 +1,6 @@
 # My arch linux configuration files and application list
 
-Here's my configurations:
+## Here's my configurations:
 
 i3 - /var/i3
 
@@ -9,7 +9,7 @@ i3blocks - /lib/i3blocks
 termite - /etc/xdg/termite
 
 
-Here's my installed applications:
+## Here's my installed applications:
 
 xorg-server xorg-server-utils xorg-twm xorg-init xorg-prop
 
