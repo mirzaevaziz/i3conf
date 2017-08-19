@@ -22,7 +22,7 @@ arandr
 arc-gtk-theme
 arc-icon-theme
 bzip2
-clementine/spotify/vlc
+clementine spotify vlc
 compton
 copyq
 deluge
