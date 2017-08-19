@@ -6,11 +6,12 @@ i3blocks - /lib/i3blocks
 termite - /etc/xdg/termite
 
 Here's my installed applications:
+
 xorg-server xorg-server-utils xorg-twm xorg-init xorg-prop
 
-i3
-i3blocks
-termite
+i3  
+i3blocks  
+termite  
 thunar
 ttf-font-awesome
 adobe-source-code-pro-fonts
