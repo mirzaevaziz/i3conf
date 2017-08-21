@@ -37,6 +37,7 @@ dmenu
 dunst-git  
 feh  
 firefox  
+gvfs  
 intel-ucode  
 libreoffice-fresh  
 lxappearance-gtk3  
