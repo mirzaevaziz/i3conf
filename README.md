@@ -50,7 +50,7 @@ pavucontrol
 playerctl  
 powertop  
 redshift  
-rofl  
+rofi  
 samba  
 telegram-desktop-bin  
 thunar-archive-plugin  
