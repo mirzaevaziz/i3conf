@@ -41,6 +41,7 @@ intel-ucode
 libreoffice-fresh  
 lxappearance-gtk3  
 lxtask  
+morc_menu  
 nitrogen  
 ntfs-3g  
 pamac-aur  
