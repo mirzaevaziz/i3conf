@@ -19,9 +19,11 @@ hide_edge_borders both
 
 set $mod Mod4
 
+focus_follows_mouse no
+
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:System San Francisco Display 10
+font pango:Source Code Pro 10
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -135,6 +137,96 @@ mode "Exit (L)ogout, (R)eboot, (P)oweroff" {
         bindsym Escape mode "default"
 }
 
+
+# set $mod Mod4
+set $mod2 Mod1
+
+mode "mouse" {
+
+    # set your three speeds here
+
+    set $slow 50
+    set $quick 10
+    set $fast 5
+
+    # Mouse movement (slow/fine-tuned) -- vim keybindings
+
+    bindsym h exec xdotool mousemove_relative -- -$slow 0
+    bindsym j exec xdotool mousemove_relative 0 $slow
+    bindsym k exec xdotool mousemove_relative -- 0 -$slow
+    bindsym l exec xdotool mousemove_relative $slow 0
+
+    # Mouse movement (slow/fine-tuned) -- arrow keys
+
+    bindsym Left exec xdotool mousemove_relative -- -$slow 0
+    bindsym Down exec xdotool mousemove_relative 0 $slow
+    bindsym Up exec xdotool mousemove_relative -- 0 -$slow
+    bindsym Right exec xdotool mousemove_relative $slow 0
+
+    # Mouse movement (quicker) -- vim keybindings
+
+    bindsym Shift+h exec xdotool mousemove_relative -- -$quick 0
+    bindsym Shift+j exec xdotool mousemove_relative 0 $quick
+    bindsym Shift+k exec xdotool mousemove_relative -- 0 -$quick
+    bindsym Shift+l exec xdotool mousemove_relative $quick 0
+
+    # Mouse movement (quicker) -- arrow keys
+
+    bindsym Shift+Left exec xdotool mousemove_relative -- -$quick 0
+    bindsym Shift+Down exec xdotool mousemove_relative 0 $quick
+    bindsym Shift+Up exec xdotool mousemove_relative -- 0 -$quick
+    bindsym Shift+Right exec xdotool mousemove_relative $quick 0
+
+    # Mouse movement (fast) -- vim keybindings
+
+    bindsym $mod2+h exec xdotool mousemove_relative -- -$fast 0
+    bindsym $mod2+j exec xdotool mousemove_relative 0 $fast
+    bindsym $mod2+k exec xdotool mousemove_relative -- 0 -$fast
+    bindsym $mod2+l exec xdotool mousemove_relative $fast 0
+
+    # Mouse movement (fast) -- arrow keys
+
+    bindsym $mod2+Left exec xdotool mousemove_relative -- -$fast 0
+    bindsym $mod2+Down exec xdotool mousemove_relative 0 $fast
+    bindsym $mod2+Up exec xdotool mousemove_relative -- 0 -$fast
+    bindsym $mod2+Right exec xdotool mousemove_relative $fast 0
+
+    # Left Click
+    bindsym f exec xdotool click 1
+
+    # Middle Click
+    bindsym d exec xdotool click 2
+
+    # Right Click
+    bindsym s exec xdotool click 3
+
+    # Left Click-and-drag
+    bindsym Shift+f exec xdotool mousedown 1
+
+    # Middle Click-and-drag 
+    bindsym Shift+d exec xdotool mousedown 2
+
+    # Right Click-and-drag
+    bindsym Shift+s exec xdotool mousedown 3
+
+    # Left Drag release
+    bindsym $mod2+f exec xdotool mouseup 1
+
+    # Middle Drag release
+    bindsym $mod2+d exec xdotool mouseup 2
+
+    # Right Drag release
+    bindsym $mod2+s exec xdotool mouseup 3
+
+
+    # return to normal keybindings -- IMPORTANT!!
+
+    bindsym Escape mode "default"
+}
+
+bindsym $mod+Shift+m mode "mouse"
+
+
 bindsym $mod+Shift+e mode "Exit (L)ogout, (R)eboot, (P)oweroff"
 
 # resize window (you can also use the mouse for that)
@@ -214,7 +306,7 @@ bindsym XF86LaunchA exec playerctl next
 bindsym XF86Display exec arandr
 
 bindsym $mod+shift+x exec i3lock --color 475263
-bindsym $mod+d exec rofi -show run -lines 5 -eh 2 -font "System San Francisco Display 13" 
+bindsym $mod+d exec --no-startup-id albert toggle #rofi -show run -font "System San Francisco Display 13" 
 bindsym $mod+z exec morc_menu
 bindsym $mod+t exec lxtask
 
@@ -222,13 +314,16 @@ assign [class="VirtualBox"] $workspace8
 # assign [class="spotify"] $workspace10
 for_window [class="Spotify"] move to workspace $workspace10
 
-exec_always feh --bg-scale /home/ts/Documents/Wallpapers/wallhaven-535806.jpg
+exec_always feh --bg-scale /home/ts/Pictures/raven_bird_flying_smoke_black_white_92907_1680x1050.jpg
+
 exec --no-startup-id compton -f
 
 #exec_always setxkbmap -layout us,ru
-#exec_always setxkbmap -option 'grp:alt_shift_toggle'
-exec --no-startup-id dunst -config <path-to-config>
+exec_always setxkbmap -option caps:escape
+exec --no-startup-id dunst
 exec --no-startup-id redshift
-exec_always --no-startup-id synclient VertEdgeScroll=1 TapButton1=1 TapButton2=1 TapButton3=1 HorizEdgeScroll=1 HorizTwoFingerScroll=1
+exec --no-startup-id synclient VertEdgeScroll=1 TapButton1=1 TapButton2=1 TapButton3=1 HorizEdgeScroll=1 HorizTwoFingerScroll=1
 exec_always --no-startup-id setxkbmap -option grp:switch,grp:alt_shift_toggle us,ru
-exec_always --no-startup-id copyq
+exec --no-startup-id copyq
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg) &
+exec --no-startup-id unclutter
