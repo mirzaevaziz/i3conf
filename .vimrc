@@ -20,6 +20,8 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'godlygeek/tabular'
 Plug 'easymotion/vim-easymotion'
+Plug 'jmcantrell/vim-virtualenv'
+Plug 'majutsushi/tagbar'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
@@ -78,6 +80,7 @@ set nrformats=                  " make <C-a> and <C-x> play well with
 set shortmess+=I                " hide the launch screen
 set clipboard=unnamed           " normal OS clipboard interaction
 set autoread                    " automatically reload files changed outside of Vim
+set colorcolumn=80
 
 " Toggle show/hide invisible chars
 nnoremap <leader>i :set list!<cr>
@@ -166,4 +169,8 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+" }}}
+
+" Tagbar settings {{{
+nmap <F7> :TagbarToggle<CR>
 " }}}
