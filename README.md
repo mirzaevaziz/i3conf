@@ -15,6 +15,7 @@ xorg-server xorg-server-utils xorg-twm xorg-init xorg-prop
 
 i3  
 i3blocks  
+albert
 termite  
 thunar  
 ttf-font-awesome  
@@ -22,6 +23,7 @@ adobe-source-code-pro-fonts
 acpi  
 ufw  
 yaourt
+p7zip-gui
 
 arandr  
 arc-gtk-theme  
