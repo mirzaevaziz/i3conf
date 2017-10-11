@@ -22,6 +22,7 @@ Plug 'godlygeek/tabular'
 Plug 'easymotion/vim-easymotion'
 Plug 'jmcantrell/vim-virtualenv'
 Plug 'majutsushi/tagbar'
+Plug 'christoomey/vim-tmux-navigator'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
