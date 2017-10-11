@@ -23,6 +23,8 @@ Plug 'easymotion/vim-easymotion'
 Plug 'jmcantrell/vim-virtualenv'
 Plug 'majutsushi/tagbar'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'python-mode/python-mode'
+Plug 'Vimjas/vim-python-pep8-indent'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
@@ -162,9 +164,9 @@ nnoremap <F5> :UndotreeToggle<cr>
 let g:syntastic_python_checkers = ['pylint']
 let g:syntastic_python_pylint_args = "--load-plugins pylint_django"
 
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
