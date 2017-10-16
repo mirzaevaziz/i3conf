@@ -178,4 +178,3 @@ let g:syntastic_check_on_wq = 0
 " Tagbar settings {{{
 nmap <F7> :TagbarToggle<CR>
 " }}}
-f
