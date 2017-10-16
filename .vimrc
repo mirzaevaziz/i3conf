@@ -23,8 +23,6 @@ Plug 'easymotion/vim-easymotion'
 Plug 'jmcantrell/vim-virtualenv'
 Plug 'majutsushi/tagbar'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'python-mode/python-mode'
-Plug 'Vimjas/vim-python-pep8-indent'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
@@ -84,6 +82,9 @@ set shortmess+=I                " hide the launch screen
 set clipboard=unnamed           " normal OS clipboard interaction
 set autoread                    " automatically reload files changed outside of Vim
 set colorcolumn=80
+colorscheme seoul256
+set background=dark
+syntax enable
 
 " Toggle show/hide invisible chars
 nnoremap <leader>i :set list!<cr>
@@ -177,3 +178,4 @@ let g:syntastic_check_on_wq = 0
 " Tagbar settings {{{
 nmap <F7> :TagbarToggle<CR>
 " }}}
+f
