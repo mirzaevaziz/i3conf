@@ -12,8 +12,7 @@ Plug 'valloric/youcompleteme'
 Plug 'scrooloose/nerdtree'
 Plug 'kien/ctrlp.vim'
 Plug 'mbbill/undotree'
-Plug 'Chiel92/vim-autoformat'
-Plug 'vim-syntastic/syntastic'
+Plug 'w0rp/ale'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
@@ -144,7 +143,7 @@ nmap <silent> <A-Left> :wincmd h<CR>
 nmap <silent> <A-Right> :wincmd l<CR>
 
 nnoremap <F3> :set hlsearch!<CR>  " Toggle search highlighting
-nnoremap <F8> :Autoformat<CR>
+nnoremap <F8> :ALEFix<CR>
 " }}}
 
 " Invoke CtrlP, but CommandT style
@@ -161,20 +160,31 @@ endif
 nnoremap <F5> :UndotreeToggle<cr>
 " }}}
 
-" Syntastic settings {{{
-let g:syntastic_python_checkers = ['pylint']
-let g:syntastic_python_pylint_args = "--load-plugins pylint_django"
-
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-" }}}
-
 " Tagbar settings {{{
 nmap <F7> :TagbarToggle<CR>
+" }}}
+
+" Refactoring tools {{{
+ " For local replace
+nnoremap gr gd[{V%:%s/<C-R>///gc<left><left><left>
+
+" For global replace
+nnoremap gR gD:%s/<C-R>///gc<left><left><left>
+" }}}
+
+" ALE settings {{{
+let g:ale_fix_on_save = 1
+let g:ale_fixers = {
+            \'python' : ['remove_trailing_lines', 'trim_whitespace', 
+            \'add_blank_lines_for_python_control_statements',
+            \'autopep8','isort','yapf']
+            \}
+" Write this in your vimrc file
+let g:ale_lint_on_text_changed = 'never'
+" You can disable this option too
+" if you don't want linters to run on opening a file
+let g:ale_lint_on_enter = 0
+
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
 " }}}
